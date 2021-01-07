@@ -1,0 +1,20 @@
+.app {
+  display: flex;
+  display: -webkit-flex;
+  height: 100%;
+  flex-direction: column;
+  .app-body {
+    flex: 1;
+    width: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: auto;
+  }
+  .app-nav {
+    display: flex;
+    justify-content: space-around;
+    li {
+      display: inline-block;
+    }
+  }
+}
