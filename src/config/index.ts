@@ -16,7 +16,7 @@ const AppConfig: Config = {
   BASENAME: "/my-bill",
   SUCCESS_CODE: 200,
   LOGIN_EXPIRE: 400,
-  TOKEN_KEY: "Bill_Token_key",
+  TOKEN_KEY: "bill-token-tey",
   theme: "light",
   title: "My Bill",
 };
