@@ -50,9 +50,19 @@ export function getLayoutRouteList() {
  */
 export function getBusinessRouteList(): IRoute[] {
   const routeList = routes.filter((route) => route.path === "/");
-  if (routeList.length) {
-    return flattenRoute(routeList, true, false);
+  console.log(routeList, "11");
+  if (routeList.length > 0) {
+    return flattenRoute(routeList, true, true);
   }
 
   return [];
+}
+
+export function getPageTitle(routeList: IRoute[]): string {
+  const route = routeList.find((child) => {
+    console.log(child.path);
+    return child.path === window.location.pathname;
+  });
+
+  return route ? route.meta.title : "";
 }

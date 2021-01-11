@@ -11,7 +11,7 @@ const routes: IRoute[] = [
     meta: {
       title: "系统",
     },
-    redirect: "/home/intro",
+    redirect: "/home",
     children: [home],
   },
 ];

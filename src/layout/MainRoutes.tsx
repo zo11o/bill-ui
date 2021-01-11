@@ -1,11 +1,13 @@
 import React, { Children, useMemo } from "react";
 import Helmet from "react-helmet";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { IRoute } from "router/config";
-import { businessRouteList } from "router/utils";
+import { businessRouteList, getPageTitle } from "router/utils";
+import Auth from "./Auth";
+import AsyncRoutes from "./AsyncRoutes";
 
 function renderRoute(route: IRoute) {
-  const title = "你好";
+  const title = getPageTitle(businessRouteList);
   const { component: Component } = route;
 
   return (
@@ -13,19 +15,24 @@ function renderRoute(route: IRoute) {
       key={route.path}
       exact={route.path !== "*"}
       path={route.path}
-      // render={props => (
-      //   <Component {...props} />
-      // )}
+      render={(props) => (
+        <Auth {...props} route={route}>
+          <Helmet>
+            <title>{title}</title>
+            <meta name="description" content={title} />
+          </Helmet>
+          <Component {...props} />
+        </Auth>
+      )}
     ></Route>
   );
 }
 
 function renderRouteList(): React.ReactNode[] {
-  console.log("businessRouteList:", businessRouteList);
   const result: React.ReactNode[] = [];
-
+  console.log("businessRouteList::", businessRouteList);
   businessRouteList.forEach((child: IRoute) => {
-    console.log("child:", child);
+    console.log(child);
     result.push(renderRoute(child));
   });
   console.log("renderRouteList:", result);
@@ -35,7 +42,7 @@ function renderRouteList(): React.ReactNode[] {
 function MainRoutes() {
   const routeList = useMemo(() => renderRouteList(), []);
 
-  return <Route>{routeList}</Route>;
+  return <AsyncRoutes>{routeList}</AsyncRoutes>;
 }
 
 export default MainRoutes;

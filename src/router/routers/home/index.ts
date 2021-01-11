@@ -7,6 +7,9 @@ const Home = React.lazy(
 const HomeDetail = React.lazy(
   () => import(/* webpackChunkName: "HomeDetail" */ "views/home/detail")
 );
+const HomeIntro = React.lazy(
+  () => import(/* webpackChunkName: "HomeIntro" */ "views/home/intro")
+);
 
 const route: IRoute = {
   path: "/home",
@@ -15,13 +18,20 @@ const route: IRoute = {
     title: "首页",
     icon: "home",
   },
-  redirect: "/home/intro",
+  // redirect: "/home/intro",
   children: [
     {
       path: "/home/detail",
       component: HomeDetail,
       meta: {
-        title: "总览",
+        title: "首页详情",
+      },
+    },
+    {
+      path: "/home/intro",
+      component: HomeIntro,
+      meta: {
+        title: "首页介绍",
       },
     },
   ],
