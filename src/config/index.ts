@@ -13,7 +13,7 @@ export interface Config {
 }
 
 const AppConfig: Config = {
-  BASENAME: "/my-bill",
+  BASENAME: "/bill-ui",
   SUCCESS_CODE: 200,
   LOGIN_EXPIRE: 400,
   TOKEN_KEY: "bill-token-tey",

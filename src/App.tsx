@@ -2,10 +2,9 @@ import React, { Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import config from "config";
 import "styles/index.scss";
-import Spin from "components/spin";
+import Spin from "components/Spin";
 import { IRoute } from "./router/config";
 import { layoutRouteList } from "router/utils";
-console.log("layoutRouteList", layoutRouteList);
 
 function App() {
   return (

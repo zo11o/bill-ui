@@ -1,6 +1,7 @@
 import routes from "./index";
 import { IRoute } from "./config";
-import route from "./routers/system";
+import config from "config";
+import { Route, RouteComponentProps } from "react-router-dom";
 
 /**
  * 这里将 路由解析成三个数组
@@ -35,6 +36,7 @@ export function flattenRoute(
       result.push(...flattenRoute(route.children, deep, auth));
     }
   }
+  // console.log(result)
   return result;
 }
 
@@ -50,7 +52,7 @@ export function getLayoutRouteList() {
  */
 export function getBusinessRouteList(): IRoute[] {
   const routeList = routes.filter((route) => route.path === "/");
-  console.log(routeList, "11");
+
   if (routeList.length > 0) {
     return flattenRoute(routeList, true, true);
   }
@@ -60,9 +62,19 @@ export function getBusinessRouteList(): IRoute[] {
 
 export function getPageTitle(routeList: IRoute[]): string {
   const route = routeList.find((child) => {
-    console.log(child.path);
-    return child.path === window.location.pathname;
+    // let pathname = window.location.pathname
+    // let patch = config.BASENAME ? pathname.replace(new RegExp(`${config.BASENAME}`, 'g'), '') :  pathname
+    const patch = formatPathname(window.location.pathname);
+    return child.path === patch;
   });
-
   return route ? route.meta.title : "";
+}
+
+export function formatPathname(pathname: string) {
+  // let pathname = window.location.pathname
+  let patch = config.BASENAME
+    ? pathname.replace(new RegExp(`^(${config.BASENAME})`, "g"), "")
+    : pathname;
+  console.log(patch);
+  return patch;
 }

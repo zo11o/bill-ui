@@ -31,7 +31,9 @@ class Spin extends React.Component<SpinProps, SpinState> {
     super(props);
   }
 
-  // componentDidMount() {}
+  getSnapshotBeforeUpdate() {}
+
+  componentDidUpdate() {}
 
   render() {
     return <div>加载中</div>;
