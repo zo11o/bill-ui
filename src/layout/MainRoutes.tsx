@@ -8,7 +8,6 @@ import AsyncRoutes from "./AsyncRoutes";
 
 function renderRoute(route: IRoute) {
   const title = getPageTitle(businessRouteList);
-  console.log(title);
   const { component: Component } = route;
   return (
     <Route
