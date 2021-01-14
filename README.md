@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+<h1 align="center">分析记账 WebApp 前端部分</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">让世界没有难记的帐</div>
 
-## Available Scripts
+#### 介绍
+笔者小前端一名，筹钱在老家买了房（一个艰苦的历程），在每天跑流水的时候发现每天都要记账好麻烦，而且本人每天的消费账单也囊括微信，支付宝，银行付款，统计起来十分麻烦，想到使用微信自带的工具也需要手工同步其他账单，所以干脆自己开发一款 `WebApp`，满足自己的需求
 
-In the project directory, you can run:
+本项目致力于开发一款轻便的 `App` 方便我们每个人记账，查看流水，统计收支。
+如果到之后有闲暇时间，希望可以把个人金融投资（股票，基金，债券等）的收益等也一并统计进来，有利于自己更好的管理自己的资产
 
-### `npm start`
+#### 规划
+- 从零使用 `react` 搭建系统
+- 全面使用 `react-hooks` 开发，抛弃 `class` 组件写法，所有组件异步加载，提高首屏渲染速度
+- 加入页面权限设计
+- 配套的后端 Api, 暂定使用 `node` 实现
+- 有可能的话实现一个 `node` 中转网关，后端实现微服务化（想学学 Go 语言）
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### 使用技术
+- **UI 框架**: `react`、`react-hook`、`react-router`
+- **UI 组件**：未定（有可能的话想自己封装一个）
+- **数据管理**：`redux`、`react-redux`、`redux-thunk`、`redux-logger`
+- **类型检查**：`typescript`
+- **接口请求**：`axios`
+- **cookies**：`js-cookie`
+- **过渡动画**：`react-transition-group`
+  
+#### 功能
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* [ ] 首页总览
+* [ ] 流水
+* [ ] 个人中心
+* [ ] 注册登录
 
-### `npm test`
+#### 使用
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+$ git clone git@github.com:zo11o/bill-ui.git
+$ cd react-ant-admin
+$ npm install
+$ npm run dev
+```

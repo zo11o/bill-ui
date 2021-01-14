@@ -10,6 +10,8 @@ export interface Config {
   theme: "dark" | "light";
 
   title: string;
+
+  API_URL: string;
 }
 
 const AppConfig: Config = {
@@ -19,6 +21,7 @@ const AppConfig: Config = {
   TOKEN_KEY: "bill-token-tey",
   theme: "light",
   title: "My Bill",
+  API_URL: "https://www.landluck.com.cn/react-ant-admin-api",
 };
 
 export default AppConfig;

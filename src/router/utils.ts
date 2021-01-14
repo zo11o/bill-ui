@@ -61,8 +61,6 @@ export function getBusinessRouteList(): IRoute[] {
 
 export function getPageTitle(routeList: IRoute[]): string {
   const route = routeList.find((child) => {
-    // let pathname = window.location.pathname
-    // let patch = config.BASENAME ? pathname.replace(new RegExp(`${config.BASENAME}`, 'g'), '') :  pathname
     const patch = formatPathname(window.location.pathname);
     return child.path === patch;
   });
@@ -70,7 +68,6 @@ export function getPageTitle(routeList: IRoute[]): string {
 }
 
 export function formatPathname(pathname: string) {
-  // let pathname = window.location.pathname
   let patch = config.BASENAME
     ? pathname.replace(new RegExp(`^(${config.BASENAME})`, "g"), "")
     : pathname;

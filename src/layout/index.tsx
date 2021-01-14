@@ -1,5 +1,6 @@
 import React from "react";
 import MainRoutes from "./MainRoutes";
+import { connect } from "react-redux";
 
 function Layout() {
   return (
@@ -14,4 +15,4 @@ function Layout() {
   );
 }
 
-export default Layout;
+export default connect()(Layout);

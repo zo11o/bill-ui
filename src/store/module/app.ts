@@ -1,5 +1,11 @@
 import { IRoute } from "router/config";
+import { flattenRoute } from "router/utils";
 import { IActions } from "../types";
+export interface AppState {
+  routes: IRoute[];
+  flattenRoutes: IRoute[];
+  init: boolean;
+}
 
 const defaultApp: AppState = {
   routes: [],
@@ -17,11 +23,6 @@ export const setSideBarRouters = (routers: IRoute[]) => {
     payload: routers,
   };
 };
-export interface AppState {
-  routes: IRoute[];
-  flattenRoutes: IRoute[];
-  init: boolean;
-}
 
 const appReducer = (state = defaultApp, action: IActions<any>) => {
   const { type, payload } = action;
@@ -33,9 +34,16 @@ const appReducer = (state = defaultApp, action: IActions<any>) => {
         sidebar: payload,
       };
 
+    case SET_SIDE_BAR_ROUTES:
+      return {
+        ...state,
+        routes: payload,
+        flattenRoutes: flattenRoute(payload, true, false),
+        init: true,
+      };
     default:
       return {
-        ...defaultApp,
+        ...state,
       };
   }
 };

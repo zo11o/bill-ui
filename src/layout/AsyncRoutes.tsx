@@ -3,14 +3,22 @@ import TransitionMain from "components/TransitionMain";
 import { connect } from "react-redux";
 import { IStoreState } from "store/types";
 import { setSideBarRouters } from "store/module/app";
+import { IRoute } from "router/config";
+import { apiGetMenuList } from "service/auth/menu";
+
 interface AsyncRoutesProps {
   children: React.ReactNode;
   init: boolean;
+  // setSideBarRoutes: (routes: IRoute[]) => void;
 }
 
 function AsyncRoutes(props: AsyncRoutesProps) {
   // app 尚未初始化完成
   if (!props.init) {
+    // apiGetMenuList()
+    //   .then(({ data }) => {
+    //     props.setSideBarRoutes(data.list);
+    //   })
   }
 
   return <TransitionMain>{props.children}</TransitionMain>;
