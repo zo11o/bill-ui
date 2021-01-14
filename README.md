@@ -35,7 +35,7 @@
 
 ```bash
 $ git clone git@github.com:zo11o/bill-ui.git
-$ cd react-ant-admin
+$ cd bill-ui
 $ npm install
 $ npm run dev
 ```
