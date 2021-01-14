@@ -27,13 +27,13 @@ class Spin extends React.Component<SpinProps, SpinState> {
 
   static setDefaultIndicator(indicator: React.ReactNode) {}
 
-  constructor(props: SpinProps) {
-    super(props);
-  }
+  // constructor(props: SpinProps) {
+  //   super(props);
+  // }
 
-  getSnapshotBeforeUpdate() {}
+  // getSnapshotBeforeUpdate() {}
 
-  componentDidUpdate() {}
+  // componentDidUpdate() {}
 
   render() {
     return <div>加载中</div>;

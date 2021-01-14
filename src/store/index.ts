@@ -24,6 +24,7 @@ const reducers: Reducer<
   app: appReducer,
 });
 
+// createStore(reducer, [preloadedState], enhancer)
 function createMyStore() {
   const store = window.__REDUX_DEVTOOLS_EXTENSION__
     ? createStore(

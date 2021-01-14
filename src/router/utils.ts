@@ -1,7 +1,6 @@
 import routes from "./index";
 import { IRoute } from "./config";
 import config from "config";
-import { Route, RouteComponentProps } from "react-router-dom";
 
 /**
  * 这里将 路由解析成三个数组
