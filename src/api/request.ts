@@ -1,5 +1,7 @@
+import { Modal, Toast } from "antd-mobile";
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import adminConfig from "config";
+// import store from "store";
 import { getToken } from "utils/cookie";
 
 /**
@@ -41,6 +43,19 @@ axios.interceptors.response.use(
 
     // 登录过期
     if (response.data.code === adminConfig.LOGIN_EXPIRE) {
+      // Modal 提示过期
+      Modal.alert("系统提示", response.data.msg, [
+        {
+          text: "重新登录",
+          onPress: () => {
+            // store.dispatch()
+            // store.dispatch(logout())
+            // window.location.href = `${window.location.origin
+            //   }/react-ant-admin/system/login?redirectURL=${encodeURIComponent(window.location.href)}`;
+          },
+        },
+      ]);
+
       return Promise.reject(new Error(response.data.msg));
     }
 
@@ -48,11 +63,12 @@ axios.interceptors.response.use(
       return response.data as any;
     }
 
+    Toast.fail(response.data.msg || "未知错误");
     return Promise.reject(new Error(response.data.msg));
   },
   (error: AxiosError) => {
     // 这里要提示失败
-
+    Toast.fail(error || "未知错误");
     return Promise.reject(error);
   }
 );

@@ -15,14 +15,14 @@ interface AsyncRoutesProps {
 
 function AsyncRoutes(props: AsyncRoutesProps) {
   // app 尚未初始化完成
-  if (!props.init) {
-    apiGetMenuList()
-      .then(({ data }) => {
-        props.setSideBarRoutes([]);
-      })
-      .catch(() => {});
-    return <Spin>{props.children}</Spin>;
-  }
+  // if (!props.init) {
+  //   apiGetMenuList()
+  //     .then(({ data }) => {
+  //       props.setSideBarRoutes([]);
+  //     })
+  //     .catch(() => {});
+  //   return <Spin>{props.children}</Spin>;
+  // }
 
   return <TransitionMain>{props.children}</TransitionMain>;
 }
