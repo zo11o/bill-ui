@@ -2,7 +2,9 @@ import React from "react";
 import MainRoutes from "./MainRoutes";
 import { connect } from "react-redux";
 
-function Layout() {
+interface LayoutProps {}
+
+function Layout(props: LayoutProps) {
   return (
     <>
       <MainRoutes />
@@ -15,4 +17,4 @@ function Layout() {
   );
 }
 
-export default connect()(Layout);
+export default connect(() => ({}))(Layout);

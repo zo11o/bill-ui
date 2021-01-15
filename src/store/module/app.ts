@@ -16,13 +16,10 @@ const defaultApp: AppState = {
 const SET_SIDE_BAR_OPENED = "SET_SIDE_BAR_OPENED";
 const SET_SIDE_BAR_ROUTES = "SET_SIDE_BAR_ROUTES";
 
-export const setSideBarRouters = (routers: IRoute[]) => {
-  console.log(routers);
-  return {
-    type: SET_SIDE_BAR_ROUTES,
-    payload: routers,
-  };
-};
+export const setSideBarRoutes = (routers: IRoute[]) => ({
+  type: SET_SIDE_BAR_ROUTES,
+  payload: routers,
+});
 
 const appReducer = (state = defaultApp, action: IActions<any>) => {
   const { type, payload } = action;

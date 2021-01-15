@@ -71,6 +71,5 @@ export function formatPathname(pathname: string) {
   let patch = config.BASENAME
     ? pathname.replace(new RegExp(`^(${config.BASENAME})`, "g"), "")
     : pathname;
-  console.log(patch);
   return patch;
 }
