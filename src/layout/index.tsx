@@ -3,10 +3,7 @@ import MainRoutes from './MainRoutes';
 import { connect } from 'react-redux';
 import { Button } from 'antd-mobile';
 
-type LayoutProps = {};
-
-function Layout(props: LayoutProps) {
-  console.log(props);
+function Layout() {
   return (
     <>
       <Button>你好</Button>

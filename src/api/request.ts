@@ -26,10 +26,11 @@ axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? adminConfig.API
 axios.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     const token = getToken();
+    const newConfig = config;
     if (token) {
-      config.headers.token = token;
+      newConfig.headers.token = token;
     }
-    return config;
+    return newConfig;
   },
   (error: AxiosError) => Promise.reject(error),
 );

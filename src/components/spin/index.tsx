@@ -36,7 +36,6 @@ function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
     return null;
   }
   // 做错误判断
-  console.log(`${prefixCls}-dot-spin`);
 
   return (
     <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
@@ -114,7 +113,6 @@ class Spin extends React.Component<SpinProps, SpinState> {
       },
       className,
     );
-    console.log(spinClassName);
 
     const spinElement = (
       <div style={style} className={spinClassName}>

@@ -37,10 +37,13 @@
     "web-vitals": "^0.2.4"
   },
   "lint-staged": {
+    "**/*.less": "stylelint --syntax less",
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write",
       "git add"
-    ]
+    ],
+    "**/*.{jsx}": "npm run lint-staged:js",
+    "**/*.{ts,tsx}": "npm run lint-staged:js"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -49,6 +52,7 @@
     "eject": "react-scripts eject",
     "dev": "react-app-rewired start",
     "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx --ignore-path .eslintignore .",
     "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src --ignore-path .eslintignore .",
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
@@ -98,7 +102,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run lint-staged"
     }
   }
 }

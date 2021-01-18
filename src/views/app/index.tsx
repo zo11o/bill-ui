@@ -1,16 +1,15 @@
 import './index.scss';
-import type { FC, ReactElement } from 'react';
+// import type { FC, ReactElement } from 'react';
 
-type IProps = {};
+// type IProps = {};
 
-type defaultProps = {
-  children: FC<ReactElement>;
-};
+// type defaultProps = {
+//   children: FC<ReactElement>;
+// };
 
 function Layout(props: any) {
   return (
     <div className="app">
-      {/* <header className="app-header">你好啊</header> */}
       <div className="app-body">{props.children}</div>
       <nav className="app-nav">
         <li>总览</li>
