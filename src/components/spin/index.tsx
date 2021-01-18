@@ -1,5 +1,7 @@
 import * as React from "react";
 import classNames from "classnames";
+import { getPrefixCls } from "../_util";
+import { debounce } from "lodash";
 import "./style/index.less";
 
 export const tuple = <T extends string[]>(...args: T) => args;
@@ -53,10 +55,10 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
 }
 
 class Spin extends React.Component<SpinProps, SpinState> {
-  static defaultProps: {
-    spinning: true;
-    size: "default";
-    wrapperClassName: "";
+  static defaultProps = {
+    spinning: true,
+    size: "default" as SpinSize,
+    wrapperClassName: "",
   };
 
   static setDefaultIndicator(indicator: React.ReactNode) {
@@ -67,13 +69,13 @@ class Spin extends React.Component<SpinProps, SpinState> {
 
   constructor(props: SpinProps) {
     super(props);
-
     const { spinning, delay } = props;
     const shouldBeDelayed = shouldDelay(spinning, delay);
     this.state = {
       spinning: spinning && !shouldBeDelayed,
     };
     this.originalUpdateSpinning = this.updateSpinning;
+    this.debouncifyUpdateSpinning(props);
   }
 
   updateSpinning = () => {
@@ -85,9 +87,21 @@ class Spin extends React.Component<SpinProps, SpinState> {
     }
   };
 
-  // getSnapshotBeforeUpdate() {}
+  debouncifyUpdateSpinning = (props?: SpinProps) => {
+    const { delay } = props || this.props;
+    if (delay) {
+      this.cancelExistingSpin();
+      this.updateSpinning = debounce(this.originalUpdateSpinning, delay);
+    }
+  };
 
-  // componentDidUpdate() {}
+  cancelExistingSpin() {
+    const { updateSpinning } = this;
+    if (updateSpinning && (updateSpinning as any).cancel) {
+      (updateSpinning as any).cancel();
+    }
+  }
+
   renderSpin = () => {
     const {
       className,
@@ -99,7 +113,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
     } = this.props;
 
     const { spinning } = this.state;
-    let _prefix = PRE_FIX_CLS + "-spin";
+    let _prefix = getPrefixCls("spin");
     const spinClassName = classNames(
       _prefix,
       {

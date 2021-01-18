@@ -1,15 +1,12 @@
 @import '../../../styles/var.less';
+@import '../../../styles/mixin.less';
 
-@primary-color: #1890FF;
 @spin-prefix-cls: ~'@{ant-prefix}-spin';
-@black:#000;
 @text-color-secondary: fade(@black, 45%);
 @spin-dot-default: @text-color-secondary;
 @ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
 @component-background: #fff;
 
-@text-color: @primary-color;
-@font-size-base: 14px;
 @line-height-base: 1.5715;
 @font-feature-settings-base: 'tnum';
 @font-variant-base: tabular-nums;
@@ -20,27 +17,6 @@
 @spin-dot-size: 20px;
 @spin-dot-size-lg: 32px;
 
-// mixins
-.size(@width; @height) {
-  width: @width;
-  height: @height;
-}
-
-.square(@size) {
-  .size(@size; @size);
-}
-
-.reset-component() {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  color: @text-color;
-  font-size: @font-size-base;
-  font-variant: @font-variant-base;
-  line-height: @line-height-base;
-  list-style: none;
-  font-feature-settings: @font-feature-settings-base;
-}
 // -------------------
 
 .@{spin-prefix-cls} {
