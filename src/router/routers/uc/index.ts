@@ -10,6 +10,7 @@ const route: IRoute = {
   meta: {
     title: '用户中心',
     icon: 'uc',
+    navKey: 3,
   },
   // redirect: "/home/intro",
   children: [

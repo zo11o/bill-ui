@@ -3,10 +3,11 @@ import type { IRoute } from './config';
 import system from './routers/system';
 import home from './routers/home';
 import uc from './routers/uc';
+import statistic from './routers/statistic';
 import error, { errorRedirect } from './routers/error';
 
 // 在这个数组加业务路由
-const businessRouteLists: IRoute[] = [home, uc, error];
+const businessRouteLists: IRoute[] = [home, statistic, uc, error];
 // 错误页面跳转
 businessRouteLists.push(errorRedirect);
 

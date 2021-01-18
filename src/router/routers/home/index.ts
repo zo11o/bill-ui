@@ -12,7 +12,8 @@ const route: IRoute = {
   component: Home,
   meta: {
     title: '首页',
-    icon: 'home',
+    icon: 'cross',
+    navKey: 1,
   },
   // redirect: "/home/intro",
   children: [

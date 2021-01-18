@@ -53,7 +53,7 @@
     "dev": "react-app-rewired start",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx --ignore-path .eslintignore .",
-    "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+    "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src && npm run lint:style --ignore-path .eslintignore .",
     "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src --ignore-path .eslintignore .",
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
     "lint:prettier": "check-prettier lint --ignore-path .eslintignore .",

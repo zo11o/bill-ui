@@ -31,7 +31,6 @@ export function flattenRoute(routeList: IRoute[], deep: boolean, auth: boolean):
       result.push(...flattenRoute(route.children, deep, auth));
     }
   }
-  // console.log(result)
   return result;
 }
 
@@ -68,4 +67,9 @@ export function formatPathname(pathname: string) {
     ? pathname.replace(new RegExp(`^(${config.BASENAME})`, 'g'), '')
     : pathname;
   return patch;
+}
+
+export function getNavRoutes(): IRoute[] {
+  const navigationPages = getBusinessRouteList().filter((o) => o.meta.navKey);
+  return navigationPages;
 }

@@ -14,6 +14,8 @@ export type IRouteBase = {
 export type IRouteMeta = {
   title: string;
   icon?: string;
+  // 是否导航页面 安装大小排序 越小越靠前 不存在即不是导航页面
+  navKey?: number;
 };
 
 export type IRoute = {
