@@ -28,7 +28,7 @@
   text-align: center;
   vertical-align: middle;
   opacity: 0;
-  transition: transform .3s @ease-in-out-circ;
+  transition: transform 0.3s @ease-in-out-circ;
 
   &-spinning {
     position: static;
@@ -98,7 +98,6 @@
       }
     }
 
-
     &-spin {
       transform: rotate(45deg);
       animation: antRotate 1.2s infinite linear;
@@ -127,9 +126,7 @@
       height: 14px;
     }
   }
-
 }
-
 
 @keyframes antSpinMove {
   to {

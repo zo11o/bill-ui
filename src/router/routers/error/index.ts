@@ -1,45 +1,41 @@
-import React from "react";
-import { IRoute } from "router/config";
+import React from 'react';
+import type { IRoute } from 'router/config';
 
-const Error404 = React.lazy(
-  () => import(/* webpackChunkName: "error-404" */ "views/error/404")
-);
+const Error404 = React.lazy(() => import(/* webpackChunkName: "error-404" */ 'views/error/404'));
 
-const Error403 = React.lazy(
-  () => import(/* webpackChunkName: "error-403" */ "views/error/403")
-);
+const Error403 = React.lazy(() => import(/* webpackChunkName: "error-403" */ 'views/error/403'));
 
 export const errorRedirect: IRoute = {
-  path: "/*",
+  path: '/*',
   meta: {
-    title: "错误页面",
+    title: '错误页面',
   },
-  redirect: "/error/404",
+  redirect: '/error/404',
   component: Error404,
 };
 
 const route: IRoute = {
-  path: "/error",
+  path: '/error',
   component: Error404,
   meta: {
-    title: "错误页面",
+    title: '错误页面',
   },
-  redirect: "/error/404",
+  redirect: '/error/404',
   children: [
     {
-      path: "/error/404",
+      path: '/error/404',
       auth: false,
       component: Error404,
       meta: {
-        title: "页面不存在",
+        title: '页面不存在',
       },
     },
     {
-      path: "/error/403",
+      path: '/error/403',
       auth: false,
       component: Error403,
       meta: {
-        title: "无访问权限",
+        title: '无访问权限',
       },
     },
   ],

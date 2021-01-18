@@ -1,10 +1,10 @@
-import { AppState } from "./module/app";
+import type { AppState } from './module/app';
 
-export interface IStoreState {
+export type IStoreState = {
   app: AppState;
-}
+};
 
-export interface IActions<T> {
+export type IActions<T> = {
   type: string;
   payload: T;
-}
+};

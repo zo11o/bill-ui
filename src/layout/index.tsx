@@ -1,11 +1,12 @@
-import React from "react";
-import MainRoutes from "./MainRoutes";
-import { connect } from "react-redux";
-import { Button } from "antd-mobile";
+import React from 'react';
+import MainRoutes from './MainRoutes';
+import { connect } from 'react-redux';
+import { Button } from 'antd-mobile';
 
-interface LayoutProps {}
+type LayoutProps = {};
 
 function Layout(props: LayoutProps) {
+  console.log(props);
   return (
     <>
       <Button>你好</Button>

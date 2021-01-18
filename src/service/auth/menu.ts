@@ -1,17 +1,18 @@
-import { request } from "api/request";
-export interface MenuSearchParams {
+import { request } from 'api/request';
+
+export type MenuSearchParams = {
   name?: string;
   id?: number;
-}
+};
 
-export interface Demo {
+export type Demo = {
   name?: string;
-}
+};
 
 export function apiGetMenuList(params?: MenuSearchParams) {
   return request<Demo>({
-    method: "GET",
-    url: "/menu",
+    method: 'GET',
+    url: '/menu',
     params,
   });
 }

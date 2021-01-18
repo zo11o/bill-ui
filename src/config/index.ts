@@ -1,4 +1,4 @@
-export interface Config {
+export type Config = {
   BASENAME?: string;
   // 请求成功码
   SUCCESS_CODE: number;
@@ -7,21 +7,21 @@ export interface Config {
 
   TOKEN_KEY: string;
 
-  theme: "dark" | "light";
+  theme: 'dark' | 'light';
 
   title: string;
 
   API_URL: string;
-}
+};
 
 const AppConfig: Config = {
-  BASENAME: "/bill-ui",
+  BASENAME: '/bill-ui',
   SUCCESS_CODE: 200,
   LOGIN_EXPIRE: 400,
-  TOKEN_KEY: "bill-token-tey",
-  theme: "light",
-  title: "My Bill",
-  API_URL: "https://www.landluck.com.cn/react-ant-admin-api",
+  TOKEN_KEY: 'bill-token-tey',
+  theme: 'light',
+  title: 'My Bill',
+  API_URL: 'https://www.landluck.com.cn/react-ant-admin-api',
 };
 
 export default AppConfig;

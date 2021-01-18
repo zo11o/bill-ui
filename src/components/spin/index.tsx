@@ -1,18 +1,16 @@
-import * as React from "react";
-import classNames from "classnames";
-import { getPrefixCls } from "../_util";
-import { debounce } from "lodash";
-import "./style/index.less";
+import * as React from 'react';
+import classNames from 'classnames';
+import { getPrefixCls } from '../_util';
+import { debounce } from 'lodash';
+import './style/index.less';
 
 export const tuple = <T extends string[]>(...args: T) => args;
-const SpinSizes = tuple("small", "default", "large");
+const SpinSizes = tuple('small', 'default', 'large');
 
 export type SpinSize = typeof SpinSizes[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
-const PRE_FIX_CLS = "ant";
-
-interface SpinProps {
+type SpinProps = {
   prefixCls?: string;
   className?: string;
   spinning?: boolean;
@@ -22,14 +20,14 @@ interface SpinProps {
   delay?: number;
   wrapperClassName?: string;
   indicator?: SpinIndicator;
-}
+};
 
-export interface SpinState {
+export type SpinState = {
   spinning?: boolean;
   notCssAnimationSupported?: boolean;
-}
+};
 
-let defaultIndicator: React.ReactNode = null;
+// let defaultIndicator: React.ReactNode = null;
 
 function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
   const { indicator } = props;
@@ -51,19 +49,19 @@ function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
 }
 
 function shouldDelay(spinning?: boolean, delay?: number): boolean {
-  return !!spinning && !!delay && !isNaN(Number(delay));
+  return !!spinning && !!delay && !Number.isNaN(Number(delay));
 }
 
 class Spin extends React.Component<SpinProps, SpinState> {
   static defaultProps = {
     spinning: true,
-    size: "default" as SpinSize,
-    wrapperClassName: "",
+    size: 'default' as SpinSize,
+    wrapperClassName: '',
   };
 
-  static setDefaultIndicator(indicator: React.ReactNode) {
-    defaultIndicator = indicator;
-  }
+  // static setDefaultIndicator(indicator: React.ReactNode) {
+  //   defaultIndicator = indicator;
+  // }
 
   originalUpdateSpinning: () => void;
 
@@ -103,31 +101,24 @@ class Spin extends React.Component<SpinProps, SpinState> {
   }
 
   renderSpin = () => {
-    const {
-      className,
-      size,
-      tip,
-      wrapperClassName,
-      style,
-      ...restProps
-    } = this.props;
+    const { className, size, style } = this.props;
 
     const { spinning } = this.state;
-    let _prefix = getPrefixCls("spin");
+    const prefix = getPrefixCls('spin');
     const spinClassName = classNames(
-      _prefix,
+      prefix,
       {
-        [`${_prefix}-sm`]: size === "small",
-        [`${_prefix}-lg`]: size === "large",
-        [`${_prefix}-spinning`]: spinning,
+        [`${prefix}-sm`]: size === 'small',
+        [`${prefix}-lg`]: size === 'large',
+        [`${prefix}-spinning`]: spinning,
       },
-      className
+      className,
     );
     console.log(spinClassName);
 
     const spinElement = (
       <div style={style} className={spinClassName}>
-        {renderIndicator(_prefix, this.props)}
+        {renderIndicator(prefix, this.props)}
       </div>
     );
     return spinElement;

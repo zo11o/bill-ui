@@ -4,7 +4,7 @@ export type Partial<T> = {
 
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
-export interface PageQueryParams {
+export type PageQueryParams = {
   page: number;
   size: number;
-}
+};

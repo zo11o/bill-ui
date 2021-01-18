@@ -1,6 +1,7 @@
-import "./index.scss";
-import { FC, ReactElement } from "react";
-interface IProps {}
+import './index.scss';
+import type { FC, ReactElement } from 'react';
+
+type IProps = {};
 
 type defaultProps = {
   children: FC<ReactElement>;

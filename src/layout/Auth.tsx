@@ -1,17 +1,16 @@
-import React, { memo } from "react";
-import { Redirect, RouteComponentProps } from "react-router-dom";
-import { IRoute } from "router/config";
-import { businessRouteList, formatPathname } from "router/utils";
-interface AuthProps extends RouteComponentProps {
+import React, { memo } from 'react';
+import type { RouteComponentProps } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import type { IRoute } from 'router/config';
+import { businessRouteList, formatPathname } from 'router/utils';
+
+type AuthProps = {
   route: IRoute;
   children: React.ReactNode;
-}
+} & RouteComponentProps;
 
-function checkAuth(location: RouteComponentProps["location"]): boolean {
-  const route = businessRouteList.find(
-    (child) => child.path === formatPathname(location.pathname)
-  );
-  console.log(route);
+function checkAuth(location: RouteComponentProps['location']): boolean {
+  const route = businessRouteList.find((child) => child.path === formatPathname(location.pathname));
   if (!route) {
     return true;
   }
@@ -28,8 +27,6 @@ function checkAuth(location: RouteComponentProps["location"]): boolean {
 }
 
 function Auth(props: AuthProps) {
-  console.log(props);
-
   if (!checkAuth(props.location)) {
     return <Redirect to="/error/403" push />;
   }
