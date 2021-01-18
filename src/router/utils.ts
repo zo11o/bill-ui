@@ -1,6 +1,6 @@
-import routes from "./index";
-import { IRoute } from "./config";
-import config from "config";
+import routes from './index';
+import type { IRoute } from './config';
+import config from 'config';
 
 /**
  * 这里将 路由解析成三个数组
@@ -17,25 +17,20 @@ export const businessRouteList = getBusinessRouteList();
  * @param deep
  * @param auth
  */
-export function flattenRoute(
-  routeList: IRoute[],
-  deep: boolean,
-  auth: boolean
-): IRoute[] {
+export function flattenRoute(routeList: IRoute[], deep: boolean, auth: boolean): IRoute[] {
   const result: IRoute[] = [];
-  for (let i = 0; i < routeList.length; i++) {
+  for (let i = 0; i < routeList.length; i += 1) {
     const route = routeList[i];
 
     result.push({
       ...route,
-      auth: typeof route.auth !== "undefined" ? route.auth : auth,
+      auth: typeof route.auth !== 'undefined' ? route.auth : auth,
     });
 
     if (route.children && deep) {
       result.push(...flattenRoute(route.children, deep, auth));
     }
   }
-  // console.log(result)
   return result;
 }
 
@@ -50,7 +45,7 @@ export function getLayoutRouteList() {
  * 业务路由
  */
 export function getBusinessRouteList(): IRoute[] {
-  const routeList = routes.filter((route) => route.path === "/");
+  const routeList = routes.filter((route) => route.path === '/');
 
   if (routeList.length > 0) {
     return flattenRoute(routeList, true, true);
@@ -64,13 +59,17 @@ export function getPageTitle(routeList: IRoute[]): string {
     const patch = formatPathname(window.location.pathname);
     return child.path === patch;
   });
-  return route ? route.meta.title : "";
+  return route ? route.meta.title : '';
 }
 
 export function formatPathname(pathname: string) {
-  let patch = config.BASENAME
-    ? pathname.replace(new RegExp(`^(${config.BASENAME})`, "g"), "")
+  const patch = config.BASENAME
+    ? pathname.replace(new RegExp(`^(${config.BASENAME})`, 'g'), '')
     : pathname;
-  console.log(patch);
   return patch;
+}
+
+export function getNavRoutes(): IRoute[] {
+  const navigationPages = getBusinessRouteList().filter((o) => o.meta.navKey);
+  return navigationPages;
 }

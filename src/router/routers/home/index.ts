@@ -1,37 +1,34 @@
-import React from "react";
-import { IRoute } from "../../config";
+import React from 'react';
+import type { IRoute } from '../../config';
 
-const Home = React.lazy(
-  () => import(/* webpackChunkName: "Home" */ "views/home")
-);
+const Home = React.lazy(() => import(/* webpackChunkName: "Home" */ 'views/home'));
 const HomeDetail = React.lazy(
-  () => import(/* webpackChunkName: "HomeDetail" */ "views/home/detail")
+  () => import(/* webpackChunkName: "HomeDetail" */ 'views/home/detail'),
 );
-const HomeIntro = React.lazy(
-  () => import(/* webpackChunkName: "HomeIntro" */ "views/home/intro")
-);
+const HomeIntro = React.lazy(() => import(/* webpackChunkName: "HomeIntro" */ 'views/home/intro'));
 
 const route: IRoute = {
-  path: "/home",
+  path: '/home',
   component: Home,
   meta: {
-    title: "首页",
-    icon: "home",
+    title: '首页',
+    icon: 'cross',
+    navKey: 1,
   },
   // redirect: "/home/intro",
   children: [
     {
-      path: "/home/detail",
+      path: '/home/detail',
       component: HomeDetail,
       meta: {
-        title: "首页详情",
+        title: '首页详情',
       },
     },
     {
-      path: "/home/intro",
+      path: '/home/intro',
       component: HomeIntro,
       meta: {
-        title: "首页介绍",
+        title: '首页介绍',
       },
     },
   ],

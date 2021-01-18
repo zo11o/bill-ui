@@ -1,11 +1,12 @@
-import { IRoute } from "router/config";
-import { flattenRoute } from "router/utils";
-import { IActions } from "../types";
-export interface AppState {
+import type { IRoute } from 'router/config';
+import { flattenRoute } from 'router/utils';
+import type { IActions } from '../types';
+
+export type AppState = {
   routes: IRoute[];
   flattenRoutes: IRoute[];
   init: boolean;
-}
+};
 
 const defaultApp: AppState = {
   routes: [],
@@ -13,16 +14,13 @@ const defaultApp: AppState = {
   init: false,
 };
 
-const SET_SIDE_BAR_OPENED = "SET_SIDE_BAR_OPENED";
-const SET_SIDE_BAR_ROUTES = "SET_SIDE_BAR_ROUTES";
+const SET_SIDE_BAR_OPENED = 'SET_SIDE_BAR_OPENED';
+const SET_SIDE_BAR_ROUTES = 'SET_SIDE_BAR_ROUTES';
 
-export const setSideBarRouters = (routers: IRoute[]) => {
-  console.log(routers);
-  return {
-    type: SET_SIDE_BAR_ROUTES,
-    payload: routers,
-  };
-};
+export const setSideBarRoutes = (routers: IRoute[]) => ({
+  type: SET_SIDE_BAR_ROUTES,
+  payload: routers,
+});
 
 const appReducer = (state = defaultApp, action: IActions<any>) => {
   const { type, payload } = action;

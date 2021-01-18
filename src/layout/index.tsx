@@ -1,18 +1,25 @@
-import React from "react";
-import MainRoutes from "./MainRoutes";
-import { connect } from "react-redux";
+import React, { Suspense } from 'react';
+import MainRoutes from './MainRoutes';
+import { connect } from 'react-redux';
+import classNames from 'classnames';
+import Spin from 'components/Spin';
 
 function Layout() {
   return (
     <>
-      <MainRoutes />
-      <nav>
-        <li>首页</li>
-        <li>列表</li>
-        <li>中心</li>
-      </nav>
+      <section
+        className={classNames({
+          layout: true,
+        })}
+      >
+        <section className={classNames('layout__main')}>
+          <Suspense fallback={<Spin size="large" className="layout__loading" />}>
+            <MainRoutes />
+          </Suspense>
+        </section>
+      </section>
     </>
   );
 }
 
-export default connect()(Layout);
+export default connect(() => ({}))(Layout);

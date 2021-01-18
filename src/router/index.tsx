@@ -1,12 +1,13 @@
-import React from "react";
-import { IRoute } from "./config";
-import system from "./routers/system";
-import home from "./routers/home";
-import uc from "./routers/uc";
-import error, { errorRedirect } from "./routers/error";
+import React from 'react';
+import type { IRoute } from './config';
+import system from './routers/system';
+import home from './routers/home';
+import uc from './routers/uc';
+import statistic from './routers/statistic';
+import error, { errorRedirect } from './routers/error';
 
 // 在这个数组加业务路由
-const businessRouteLists: IRoute[] = [home, uc, error];
+const businessRouteLists: IRoute[] = [home, statistic, uc, error];
 // 错误页面跳转
 businessRouteLists.push(errorRedirect);
 
@@ -15,12 +16,12 @@ const routes: IRoute[] = [
   system,
   // 业务路由
   {
-    path: "/",
-    component: React.lazy(() => import("layout")),
+    path: '/',
+    component: React.lazy(() => import('layout')),
     meta: {
-      title: "首页",
+      title: '首页',
     },
-    redirect: "/home",
+    redirect: '/home',
     children: businessRouteLists,
   },
 ];

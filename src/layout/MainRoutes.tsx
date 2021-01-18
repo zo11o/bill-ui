@@ -1,10 +1,13 @@
-import React, { useMemo, memo } from "react";
-import Helmet from "react-helmet";
-import { Route } from "react-router-dom";
-import { IRoute } from "router/config";
-import { businessRouteList, getPageTitle } from "router/utils";
-import Auth from "./Auth";
-import AsyncRoutes from "./AsyncRoutes";
+import React, { useMemo, memo } from 'react';
+import Helmet from 'react-helmet';
+import { Route } from 'react-router-dom';
+import type { IRoute } from 'router/config';
+import { businessRouteList, getPageTitle } from 'router/utils';
+import Auth from './Auth';
+import AsyncRoutes from './AsyncRoutes';
+import LayoutNav from 'components/LayoutNav';
+import classnames from 'classnames';
+import './mainRoutes.less';
 
 function renderRoute(route: IRoute) {
   const title = getPageTitle(businessRouteList);
@@ -12,7 +15,7 @@ function renderRoute(route: IRoute) {
   return (
     <Route
       key={route.path}
-      exact={route.path !== "*"}
+      exact={route.path !== '*'}
       path={route.path}
       render={(props) => (
         <Auth {...props} route={route}>
@@ -20,7 +23,25 @@ function renderRoute(route: IRoute) {
             <title>{title}</title>
             <meta name="description" content={title} />
           </Helmet>
-          <Component {...props} />
+          <div
+            className={classnames({
+              layout__main__body: true,
+              'layout__main__body--nav': !!route.meta.navKey,
+            })}
+          >
+            <Component {...props} />
+          </div>
+          {route.meta.navKey ? (
+            <div
+              className={classnames({
+                layout__main__nav: true,
+              })}
+            >
+              <LayoutNav {...route}></LayoutNav>
+            </div>
+          ) : (
+            ''
+          )}
         </Auth>
       )}
     ></Route>

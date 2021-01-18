@@ -1,25 +1,28 @@
-import React, { memo } from "react";
-import TransitionMain from "components/TransitionMain";
-import { connect } from "react-redux";
-import { IStoreState } from "store/types";
-import { setSideBarRouters } from "store/module/app";
-import { IRoute } from "router/config";
-import { apiGetMenuList } from "service/auth/menu";
+import React, { memo } from 'react';
+import TransitionMain from 'components/TransitionMain';
+import { connect } from 'react-redux';
+import type { IStoreState } from 'store/types';
+import { setSideBarRoutes } from 'store/module/app';
+import type { IRoute } from 'router/config';
+// import { apiGetMenuList } from 'service/auth/menu';
+// import Spin from 'components/Spin';
 
-interface AsyncRoutesProps {
+type AsyncRoutesProps = {
   children: React.ReactNode;
   init: boolean;
-  // setSideBarRoutes: (routes: IRoute[]) => void;
-}
+  setSideBarRoutes: (routes: IRoute[]) => void;
+};
 
 function AsyncRoutes(props: AsyncRoutesProps) {
   // app 尚未初始化完成
-  if (!props.init) {
-    // apiGetMenuList()
-    //   .then(({ data }) => {
-    //     props.setSideBarRoutes(data.list);
-    //   })
-  }
+  // if (!props.init) {
+  //   apiGetMenuList()
+  //     .then(({ data }) => {
+  //       props.setSideBarRoutes([]);
+  //     })
+  //     .catch(() => {});
+  //   return <Spin>{props.children}</Spin>;
+  // }
 
   return <TransitionMain>{props.children}</TransitionMain>;
 }
@@ -39,6 +42,8 @@ function AsyncRoutes(props: AsyncRoutesProps) {
 //   }
 // }
 
-export default connect(({ app }: IStoreState) => ({ init: app.init }), {
-  setSideBarRouters,
+const WarpAsyncRoutes = connect(({ app }: IStoreState) => ({ init: app.init }), {
+  setSideBarRoutes,
 })(memo(AsyncRoutes));
+
+export default WarpAsyncRoutes;

@@ -1,22 +1,22 @@
-import React from "react";
-import { IRoute } from "../../config";
+import React from 'react';
+import type { IRoute } from '../../config';
 
-const UserLayout = React.lazy(() => import("layout/UserLayout"));
-const Login = React.lazy(() => import("views/system/login"));
+const UserLayout = React.lazy(() => import('layout/UserLayout'));
+const Login = React.lazy(() => import('views/system/login'));
 
 const route: IRoute = {
-  path: "/system",
+  path: '/system',
   component: UserLayout,
   meta: {
-    title: "系统路由",
+    title: '系统路由',
   },
-  redirect: "/system/login",
+  redirect: '/system/login',
   children: [
     {
-      path: "/system/login",
+      path: '/system/login',
       component: Login,
       meta: {
-        title: "登录",
+        title: '登录',
       },
     },
     // {
