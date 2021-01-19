@@ -12,7 +12,7 @@ const route: IRoute = {
   component: Home,
   meta: {
     title: '首页',
-    icon: 'cross',
+    icon: 'home',
     navKey: 1,
   },
   // redirect: "/home/intro",

@@ -1,11 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import './style/index.less';
-import { IRoute } from 'router/config';
 import { getNavRoutes } from 'router/utils';
+import { NavLink } from 'react-router-dom';
 
-function LayoutNav(props: IRoute) {
-  console.log(props.meta.navKey);
+function LayoutNav() {
   const navRoutes = getNavRoutes().sort((a, b) =>
     a.meta.navKey && b.meta.navKey ? a.meta.navKey - b.meta.navKey : -1,
   );
@@ -13,15 +12,17 @@ function LayoutNav(props: IRoute) {
     return (
       <div className={classnames('cmp__nav')}>
         {navRoutes.map((o, i) => (
-          <div
+          <NavLink
+            to={o.path}
             className={classnames({
               'cmp__nav-item': true,
+              'cmp__nav-item--active': true,
             })}
             key={o.path + String(i)}
           >
-            <i>{i}</i>
+            <i className={classnames('cmp__nav-icon', `iconfont icon-${o.meta.icon}`)}></i>
             <span>{o.meta.title}</span>
-          </div>
+          </NavLink>
         ))}
       </div>
     );

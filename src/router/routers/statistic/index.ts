@@ -11,7 +11,7 @@ const route: IRoute = {
   component: Statistic,
   meta: {
     title: '统计',
-    icon: 'statistic',
+    icon: 'data-view',
     navKey: 2,
   },
   children: [

@@ -5,6 +5,7 @@ import Spin from 'components/Spin';
 import type { IRoute } from './router/config';
 import { layoutRouteList } from 'router/utils';
 
+import 'styles/global.less';
 import 'styles/index.less';
 
 function App() {

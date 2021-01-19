@@ -5,7 +5,7 @@ import type { IRoute } from 'router/config';
 import { businessRouteList, getPageTitle } from 'router/utils';
 import Auth from './Auth';
 import AsyncRoutes from './AsyncRoutes';
-import LayoutNav from 'components/LayoutNav';
+// import LayoutNav from 'components/LayoutNav';
 import classnames from 'classnames';
 import './mainRoutes.less';
 
@@ -31,7 +31,7 @@ function renderRoute(route: IRoute) {
           >
             <Component {...props} />
           </div>
-          {route.meta.navKey ? (
+          {/* {route.meta.navKey ? (
             <div
               className={classnames({
                 layout__main__nav: true,
@@ -41,7 +41,7 @@ function renderRoute(route: IRoute) {
             </div>
           ) : (
             ''
-          )}
+          )} */}
         </Auth>
       )}
     ></Route>

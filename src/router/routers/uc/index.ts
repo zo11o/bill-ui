@@ -8,8 +8,8 @@ const route: IRoute = {
   path: '/uc',
   component: Uc,
   meta: {
-    title: '用户中心',
-    icon: 'uc',
+    title: '我的',
+    icon: 'user',
     navKey: 3,
   },
   // redirect: "/home/intro",

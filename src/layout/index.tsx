@@ -1,21 +1,29 @@
 import React, { Suspense } from 'react';
 import MainRoutes from './MainRoutes';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
 import Spin from 'components/Spin';
+import LayoutNav from 'components/LayoutNav';
+import classnames from 'classnames';
 
 function Layout() {
   return (
     <>
       <section
-        className={classNames({
+        className={classnames({
           layout: true,
         })}
       >
-        <section className={classNames('layout__main')}>
+        <section className={classnames('layout__main')}>
           <Suspense fallback={<Spin size="large" className="layout__loading" />}>
             <MainRoutes />
           </Suspense>
+          <div
+            className={classnames({
+              layout__main__nav: true,
+            })}
+          >
+            <LayoutNav />
+          </div>
         </section>
       </section>
     </>
