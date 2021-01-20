@@ -1,12 +1,16 @@
 import React from 'react';
+import classnames from 'classnames';
+import { connect } from 'react-redux';
+import HomeHeader from './components/HomeHeader';
 
-function Home() {
+function Home(props: any) {
+  console.log(props);
   return (
-    <div>
-      <span className="iconfont icon-home"></span>
-      这里是首页<input placeholder="请输入"></input>
+    <div className={classnames('page-home')}>
+      <HomeHeader />
+      这里是首页
     </div>
   );
 }
 
-export default Home;
+export default connect(() => ({}))(Home);

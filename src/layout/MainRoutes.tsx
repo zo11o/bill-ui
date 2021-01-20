@@ -5,8 +5,7 @@ import type { IRoute } from 'router/config';
 import { businessRouteList, getPageTitle } from 'router/utils';
 import Auth from './Auth';
 import AsyncRoutes from './AsyncRoutes';
-// import LayoutNav from 'components/LayoutNav';
-import classnames from 'classnames';
+// import classnames from 'classnames';
 import './mainRoutes.less';
 
 function renderRoute(route: IRoute) {
@@ -23,25 +22,7 @@ function renderRoute(route: IRoute) {
             <title>{title}</title>
             <meta name="description" content={title} />
           </Helmet>
-          <div
-            className={classnames({
-              layout__main__body: true,
-              'layout__main__body--nav': !!route.meta.navKey,
-            })}
-          >
-            <Component {...props} />
-          </div>
-          {/* {route.meta.navKey ? (
-            <div
-              className={classnames({
-                layout__main__nav: true,
-              })}
-            >
-              <LayoutNav {...route}></LayoutNav>
-            </div>
-          ) : (
-            ''
-          )} */}
+          <Component {...props} />
         </Auth>
       )}
     ></Route>

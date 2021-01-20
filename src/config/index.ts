@@ -12,6 +12,9 @@ export type Config = {
   title: string;
 
   API_URL: string;
+
+  // 是否开启色弱模式
+  colorWeak: boolean;
 };
 
 const AppConfig: Config = {
@@ -22,6 +25,8 @@ const AppConfig: Config = {
   theme: 'light',
   title: 'My Bill',
   API_URL: 'https://www.landluck.com.cn/react-ant-admin-api',
+  // 是否开启色弱模式
+  colorWeak: false,
 };
 
 export default AppConfig;

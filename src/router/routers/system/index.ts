@@ -1,7 +1,9 @@
 import React from 'react';
 import type { IRoute } from '../../config';
 
-const UserLayout = React.lazy(() => import('layout/UserLayout'));
+const UserLayout = React.lazy(
+  () => import(/* webpackChunkName: "layout-user" */ 'layout/UserLayout'),
+);
 const Login = React.lazy(() => import('views/system/login'));
 
 const route: IRoute = {

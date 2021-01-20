@@ -1,0 +1,21 @@
+@import '../../../../styles/var.less';
+
+.p-cmp {
+  background: linear-gradient(@primary-color, @primary-color 70%, @white);
+  &__main {
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: space-around;
+
+    &-item {
+      flex      : 2;
+      text-align: center;
+    }
+
+    &-data {
+      flex        : 1;
+      border-right: 1px solid @gray-color;
+    }
+  }
+}

@@ -1,26 +1,10 @@
 .layout {
-  height: 100%;
-  &__main {
-    height: 100%;
-  }
-  &__route {
-    display:flex;
-    flex-direction:column;
-    height: ~"calc(100% - 100px)";
-  }
-  &__main__body {
-    flex: 1;
-    width: 100%;
-    height: auto;
-    overflow-y:scroll;
-    --webkit-overflow-scrolling: touch;
-  }
   &__main__nav {
-    height: 100px;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
     box-sizing: border-box;
+    height: 100px;
     border-top: 1px solid #ddd;
 
     &--light {

@@ -17,7 +17,7 @@ const routes: IRoute[] = [
   // 业务路由
   {
     path: '/',
-    component: React.lazy(() => import('layout')),
+    component: React.lazy(() => import(/* webpackChunkName: "layout" */ 'layout')),
     meta: {
       title: '首页',
     },

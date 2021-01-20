@@ -16,8 +16,8 @@ function LayoutNav() {
             to={o.path}
             className={classnames({
               'cmp__nav-item': true,
-              'cmp__nav-item--active': true,
             })}
+            activeClassName="cmp__nav-item--active"
             key={o.path + String(i)}
           >
             <i className={classnames('cmp__nav-icon', `iconfont icon-${o.meta.icon}`)}></i>

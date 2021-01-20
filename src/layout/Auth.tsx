@@ -32,7 +32,7 @@ function Auth(props: AuthProps) {
   }
 
   if (props.route.redirect) {
-    return <Redirect to={props.route.redirect!} push />;
+    return <Redirect to={props.route.redirect!} />;
   }
 
   return <>{props.children}</>;
