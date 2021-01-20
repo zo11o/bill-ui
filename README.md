@@ -22,6 +22,7 @@
 - **UI 组件**：`antd-mobile`
 - **数据管理**：`redux`、`react-redux`、`redux-thunk`、`redux-logger`
 - **类型检查**：`typescript`
+- **代码检查**：`eslint`、`prettier`
 - **接口请求**：`axios`
 - **cookies**：`js-cookie`
 - **过渡动画**：`react-transition-group`
@@ -29,9 +30,10 @@
 #### 功能
 
 - [ ] 首页总览
-- [ ] 流水
+- [ ] 数据报表
 - [ ] 个人中心
-- [ ] 注册登录
+- [ ] 功能设置
+- [ ] 添加账单
 
 #### 使用
 
@@ -40,4 +42,137 @@ $ git clone git@github.com:zo11o/bill-ui.git
 $ cd bill-ui
 $ npm install
 $ npm run dev
+```
+#### 目录结构
+```
+|-- bill-ui
+    |-- .editorconfig
+    |-- .env.beta
+    |-- .env.development
+    |-- .env.production
+    |-- .eslintignore
+    |-- .eslintrc.js
+    |-- .gitignore
+    |-- .prettierignore
+    |-- .prettierrc.js
+    |-- .stylelintrc.js
+    |-- config-overrides.js
+    |-- directoryList.md
+    |-- package.json
+    |-- README.md
+    |-- tsconfig.json
+    |-- .vscode
+    |   |-- launch.json
+    |   |-- settings.json
+    |-- public
+    |   |-- favicon.ico
+    |   |-- fixIosTitle.html
+    |   |-- index.html
+    |   |-- logo192.png
+    |   |-- logo512.png
+    |   |-- manifest.json
+    |   |-- robots.txt
+    |-- src
+    |   |-- App.test.tsx
+    |   |-- App.tsx
+    |   |-- index.tsx
+    |   |-- logo.svg
+    |   |-- react-app-env.d.ts
+    |   |-- reportWebVitals.js
+    |   |-- setupTests.js
+    |   |-- api
+    |   |   |-- request.ts
+    |   |-- assets
+    |   |   |-- fonts
+    |   |       |-- iconfont.eot
+    |   |       |-- iconfont.svg
+    |   |       |-- iconfont.ttf
+    |   |       |-- iconfont.woff
+    |   |-- components
+    |   |   |-- DatePicker
+    |   |   |-- LayoutNav
+    |   |   |   |-- index.tsx
+    |   |   |   |-- style
+    |   |   |       |-- index.less
+    |   |   |-- Spin
+    |   |   |   |-- index.tsx
+    |   |   |   |-- style
+    |   |   |       |-- index.less
+    |   |   |-- TransitionMain
+    |   |   |   |-- index.tsx
+    |   |   |-- _util
+    |   |       |-- index.ts
+    |   |-- config
+    |   |   |-- index.ts
+    |   |-- layout
+    |   |   |-- AsyncRoutes.tsx
+    |   |   |-- Auth.tsx
+    |   |   |-- index.less
+    |   |   |-- index.tsx
+    |   |   |-- mainRoutes.less
+    |   |   |-- MainRoutes.tsx
+    |   |   |-- UserLayout.tsx
+    |   |-- router
+    |   |   |-- config.ts
+    |   |   |-- index.tsx
+    |   |   |-- utils.ts
+    |   |   |-- routers
+    |   |       |-- error
+    |   |       |   |-- index.ts
+    |   |       |-- home
+    |   |       |   |-- index.ts
+    |   |       |-- statistic
+    |   |       |   |-- index.ts
+    |   |       |-- system
+    |   |       |   |-- index.ts
+    |   |       |-- uc
+    |   |           |-- index.ts
+    |   |-- service
+    |   |   |-- index.ts
+    |   |   |-- auth
+    |   |   |   |-- menu.ts
+    |   |   |-- uc
+    |   |-- store
+    |   |   |-- index.ts
+    |   |   |-- types.ts
+    |   |   |-- module
+    |   |       |-- app.ts
+    |   |       |-- settings.ts
+    |   |-- styles
+    |   |   |-- global.less
+    |   |   |-- iconfont.css
+    |   |   |-- index.less
+    |   |   |-- mixin.less
+    |   |   |-- var.less
+    |   |-- typings
+    |   |   |-- global.d.ts
+    |   |   |-- index.ts
+    |   |-- utils
+    |   |   |-- app.js
+    |   |   |-- cookie.ts
+    |   |   |-- index.ts
+    |   |-- views
+    |       |-- bill
+    |       |-- error
+    |       |   |-- 403.tsx
+    |       |   |-- 404.tsx
+    |       |-- home
+    |       |   |-- detail.tsx
+    |       |   |-- index.tsx
+    |       |   |-- intro.tsx
+    |       |   |-- components
+    |       |       |-- HomeHeader
+    |       |           |-- index.less
+    |       |           |-- index.tsx
+    |       |-- statistic
+    |       |   |-- detail.tsx
+    |       |   |-- index.tsx
+    |       |-- system
+    |       |   |-- login
+    |       |   |   |-- index.tsx
+    |       |   |-- register
+    |       |-- uc
+    |           |-- detail.tsx
+    |           |-- index.tsx
+    |-- test
 ```

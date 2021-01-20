@@ -58,7 +58,8 @@
     "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src --ignore-path .eslintignore .",
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
     "lint:prettier": "check-prettier lint --ignore-path .eslintignore .",
-    "prettier": "prettier -c --write \"**/*\""
+    "prettier": "prettier -c --write \"**/*\"",
+    "make:dir": "mddir ."
   },
   "eslintConfig": {
     "extends": [
@@ -99,6 +100,7 @@
     "eslint-plugin-import": "^2.22.1",
     "less": "^4.1.0",
     "less-loader": "^5.0.0",
+    "mddir": "^1.1.1",
     "postcss-pxtorem": "^5.1.1",
     "react-app-rewired": "^2.1.8",
     "stylelint": "^13.8.0"
