@@ -1,22 +1,60 @@
 @import '../../../../styles/var.less';
 
-.p-cmp {
+.p-cmp-home {
   background: linear-gradient(@primary-color, @primary-color 70%, @white);
 
-  &__main {
+  .header {
+    padding       : 20px 0;
+    font-size     : 35px;
+    letter-spacing: 10px;
+    text-align    : center;
+  }
+
+  .main {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+
+    .item {
+      flex        : 3;
+      padding-left: 50px;
+
+      .tit {
+        color      : @gray-color;
+        font-weight: lighter;
+      }
+
+      .info {
+        margin-top: 16px;
+        font-size : 36px;
+        // &.in {
+        //   color: @green-color;
+        // }
+        // &.out {
+        //   color: @red-color;
+        // }
+      }
+
+      &.data {
+        flex        : 2;
+        padding-left: 0;
+        text-align  : center;
+
+        .info {
+          border-right: 1px solid @gray-color;
+        }
+      }
+    }
+  }
+
+  .bar {
     display        : flex;
-    flex-direction : row;
     align-items    : center;
     justify-content: space-around;
-
-    &-item {
-      flex      : 2;
-      text-align: center;
-    }
-
-    &-data {
-      flex        : 1;
-      border-right: 1px solid @gray-color;
-    }
+    margin         : 12px 24px;
+    padding        : 24px;
+    background     : @white;
+    border-radius  : 12px;
+    box-shadow     : 0 0 48px 0 rgba(0, 0, 0, 0.08);
   }
 }

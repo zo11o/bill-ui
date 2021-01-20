@@ -8,7 +8,6 @@ function Home(props: any) {
   return (
     <div className={classnames('page-home')}>
       <HomeHeader />
-      这里是首页
     </div>
   );
 }

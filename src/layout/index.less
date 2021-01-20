@@ -1,17 +1,18 @@
 .layout {
   height: 100%;
+
   &__main {
     height: 100%;
   }
 
   &__main__body {
-    display:flex;
-    flex: 1;
-    flex-direction:column;
-    width: 100%;
-    height: auto;
-    height: ~"calc(100% - 100px)";
-    overflow-y:scroll;
+    display       : flex;
+    flex          : 1;
+    flex-direction: column;
+    width         : 100%;
+    height        : auto;
+    height        : ~"calc(100% - 100px)";
+    overflow-y    : scroll;
 
     --webkit-overflow-scrolling: touch;
   }
@@ -19,39 +20,42 @@
   &__route {
     position: relative;
 
-
     &-enter {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translate3d(40px, 0, 0);
-      opacity: 0;
+      position    : absolute;
+      top         : 0;
+      left        : 0;
+      width       : 100vw;
+      // transform: translate3d(40px, 0, 0);
+      opacity     : 0;
     }
 
     &-enter-active {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translate3d(0, 0, 0);
-      opacity: 1;
-      transition: all 300ms;
+      position    : absolute;
+      top         : 0;
+      left        : 0;
+      width       : 100vw;
+      // transform: translate3d(0, 0, 0);
+      opacity     : 1;
+      transition  : all 300ms;
     }
 
     &-exit {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translate3d(0, 0, 0);
-      opacity: 1;
+      position    : absolute;
+      top         : 0;
+      left        : 0;
+      width       : 100vw;
+      // transform: translate3d(0, 0, 0);
+      opacity     : 1;
     }
 
     &-exit-active {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translate3d(-40px, 0, 0);
-      opacity: 0;
-      transition: all 300ms;
+      position    : absolute;
+      top         : 0;
+      left        : 0;
+      width       : 100vw;
+      // transform: translate3d(-40px, 0, 0);
+      opacity     : 0;
+      transition  : all 300ms;
     }
   }
 }
