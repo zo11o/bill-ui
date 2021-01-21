@@ -9,22 +9,26 @@ import AsyncRoutes from './AsyncRoutes';
 import './mainRoutes.less';
 
 function renderRoute(route: IRoute) {
-  const title = getPageTitle(businessRouteList);
+  // const title = getPageTitle(businessRouteList);
+  console.log(route);
   const { component: Component } = route;
   return (
     <Route
       key={route.path}
       exact={route.path !== '*'}
       path={route.path}
-      render={(props) => (
-        <Auth {...props} route={route}>
-          <Helmet>
-            <title>{title}</title>
-            <meta name="description" content={title} />
-          </Helmet>
-          <Component {...props} />
-        </Auth>
-      )}
+      render={(props) => {
+        const title = getPageTitle(businessRouteList);
+        return (
+          <Auth {...props} route={route}>
+            <Helmet>
+              <title>{title}</title>
+              <meta name="description" content={title} />
+            </Helmet>
+            <Component {...props} />
+          </Auth>
+        );
+      }}
     ></Route>
   );
 }
