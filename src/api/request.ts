@@ -20,7 +20,8 @@ axios.defaults.headers = {
 };
 
 // 指定请求地址
-axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? adminConfig.API_URL : '';
+axios.defaults.baseURL =
+  process.env.NODE_ENV === 'production' ? adminConfig.API_URL : adminConfig.DEV_API_URL || '';
 
 // 请求拦截器
 axios.interceptors.request.use(

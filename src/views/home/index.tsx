@@ -3,31 +3,12 @@ import classnames from 'classnames';
 import { connect } from 'react-redux';
 import HomeHeader from './components/HomeHeader';
 import HomeList from './components/HomeList';
-import { IBillItem } from 'service/home/list';
 import data from 'mock/demo';
 
 import './index.less';
+import { IBillList } from 'service/home/list';
 
-const ListData: IBillItem[] = [
-  {
-    id: '1',
-    name: '账单1',
-    value: '41',
-    icon: 'house',
-  },
-  {
-    id: '2',
-    name: '账单2',
-    value: '-12',
-    icon: 'house',
-  },
-  {
-    id: '3',
-    name: '账单3',
-    value: '-21',
-    icon: 'house',
-  },
-];
+const ListData: IBillList = data.data;
 
 function Home() {
   console.log(data);

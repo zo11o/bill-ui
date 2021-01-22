@@ -5,4 +5,6 @@ export interface IBillItem {
   icon?: string;
 }
 
+export type IBillList = IBillItem[];
+
 export default {};

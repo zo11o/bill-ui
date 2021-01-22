@@ -1,6 +1,7 @@
 const path = require('path');
 const { override, addLessLoader, fixBabelImports, addPostcssPlugins, overrideDevServer } = require('customize-cra');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const px2rem = require("postcss-pxtorem")
 
 // 打包配置
 // const addCustomize = () => config => {
@@ -21,6 +22,9 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin');
 //   return config;
 // }
 
+// 这个是本地开发时候开启了 easy-mock 的项目链接
+const devApiMockHost = "http://localhost:7300/mock/600a3a89e49c512de87884cd/"
+
 // 跨域配置
 const devServerConfig = () => config => {
   return {
@@ -29,7 +33,7 @@ const devServerConfig = () => config => {
     compress: true,
     proxy: {
       '/api': {
-        target: 'xxx',
+        target: devApiMockHost,
         changeOrigin: true,
         pathRewrite: {
           '^/api': '/api',
@@ -39,41 +43,26 @@ const devServerConfig = () => config => {
   }
 }
 
-module.exports = override(
-  addLessLoader({
-    javascriptEnabled: true,
-    sourceMap: true,
-  }),
-  addLessLoader(),
-  fixBabelImports('import', {
-    libraryName: 'antd-mobile',
-    libraryDirectory: 'es',
-    style: 'css'
-  }),
-  addPostcssPlugins([require('postcss-pxtorem')({
-    rootValue: 75,
-    propList: ['*'],
-    minPixelValue: 2,
-    selectorBlackList: ['am-'] })]),
-  // addCustomize()
-);
-
-// module.exports = {
-//   webpack: override(
-//     addLessLoader({
-//       javascriptEnabled: true,
-//       sourceMap: true,
-//     }),
-//     addLessLoader(),
-//     fixBabelImports('import', {
-//       libraryName: 'antd-mobile',
-//       libraryDirectory: 'es',
-//       style: 'css'
-//     }),
-//     addPostcssPlugins([require('postcss-pxtorem')({ rootValue: 75, propList: ['*'], minPixelValue: 2, selectorBlackList: ['am-'] })]),
-//     // addCustomize()
-//   ),
-//   devServer: overrideDevServer(
-//     devServerConfig()
-//   )
-// }
+module.exports = {
+  webpack: override(
+    addLessLoader({
+      javascriptEnabled: true,
+      sourceMap: true,
+    }),
+    addLessLoader(),
+    fixBabelImports('import', {
+      libraryName: 'antd-mobile',
+      libraryDirectory: 'es',
+      style: 'css'
+    }),
+    addPostcssPlugins([px2rem({
+      rootValue: 37.5,
+      propList: ['*'],
+      // minPixelValue: 2,
+      // selectorBlackList: ['am-']
+    })]),
+  ),
+  devServer: overrideDevServer(
+    devServerConfig()
+  )
+}

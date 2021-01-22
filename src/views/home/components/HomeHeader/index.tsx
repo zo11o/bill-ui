@@ -4,7 +4,7 @@ import './index.less';
 
 function HomePage() {
   return (
-    <div className={classnames('p-cmp-home')}>
+    <div className={classnames('p-cmp-home-header')}>
       <div className="header">周罗记账</div>
       <div className={classnames('main')}>
         <div className="item data">

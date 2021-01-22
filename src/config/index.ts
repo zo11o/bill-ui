@@ -12,6 +12,7 @@ export type Config = {
   title: string;
 
   API_URL: string;
+  DEV_API_URL?: string;
 
   // 是否开启色弱模式
   colorWeak: boolean;
@@ -24,7 +25,8 @@ const AppConfig: Config = {
   TOKEN_KEY: 'bill-token-tey',
   theme: 'light',
   title: 'My Bill',
-  API_URL: 'https://www.landluck.com.cn/react-ant-admin-api',
+  API_URL: 'https://www.zo11o.club/bill-api',
+  DEV_API_URL: '/api',
   // 是否开启色弱模式
   colorWeak: false,
 };

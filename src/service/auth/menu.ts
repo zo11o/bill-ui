@@ -12,7 +12,7 @@ export type Demo = {
 export function apiGetMenuList(params?: MenuSearchParams) {
   return request<Demo>({
     method: 'GET',
-    url: '/menu',
+    url: '/test',
     params,
   });
 }

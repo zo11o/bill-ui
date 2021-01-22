@@ -18,10 +18,13 @@ function AsyncRoutes(props: AsyncRoutesProps) {
   // if (!props.init) {
   //   apiGetMenuList()
   //     .then(({ data }) => {
+  //       console.log(data)
   //       props.setSideBarRoutes([]);
   //     })
-  //     .catch(() => {});
-  //   return <Spin>{props.children}</Spin>;
+  //     .catch((err: Error) => {
+  //       console.log(err)
+  //     });
+  //   return <Spin className="layout__loading" />;
   // }
 
   return <TransitionMain>{props.children}</TransitionMain>;

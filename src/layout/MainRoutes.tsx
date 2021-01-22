@@ -10,7 +10,6 @@ import './mainRoutes.less';
 
 function renderRoute(route: IRoute) {
   // const title = getPageTitle(businessRouteList);
-  console.log(route);
   const { component: Component } = route;
   return (
     <Route

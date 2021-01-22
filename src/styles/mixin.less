@@ -19,3 +19,17 @@
   list-style: none;
   font-feature-settings: @font-feature-settings-base;
 }
+
+.bd1-right {
+  position: relative;
+  &::before {
+    position: absolute;
+    right: 0;
+    width: 1px;
+    height: 200%;
+    background: @gray-color;
+    // transform: scale(.5,.5);
+    transform: scale(.5,.5) translate(0, -50%);
+    content: ' ';
+  }
+}

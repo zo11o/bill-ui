@@ -9,9 +9,7 @@ function ListItem(props: IListItem) {
   const { data } = props;
   return (
     <div>
-      {data.icon}
-      {data.name}
-      {data.value}
+      {data.icon} -{data.name},{data.value}
     </div>
   );
 }
