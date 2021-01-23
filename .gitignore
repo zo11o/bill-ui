@@ -34,3 +34,6 @@ directoryList.md
 *.sln
 *.sw*
 /selenium-debug.log
+
+# cache
+.eslintcache
