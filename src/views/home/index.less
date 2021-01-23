@@ -1,4 +1,5 @@
 @import '../../styles/var.less';
+@import '../../styles/mixin.less';
 
 .page-home {
   &__body {
@@ -7,7 +8,9 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      padding-bottom: 12px;
       color: @gray-color;
+      .bd1-bottom(0.2);
     }
   }
 }
