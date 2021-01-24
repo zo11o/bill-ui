@@ -1,5 +1,5 @@
 import React from 'react';
-import { IBillItem } from 'service/home/list';
+import type { IBillItem } from 'service/home/list';
 import ListItem from './item';
 
 interface HomeListProps {
@@ -12,7 +12,7 @@ function HomeList(props: HomeListProps) {
   return (
     <div>
       {sourceData.map((o) => (
-        <ListItem data={o} />
+        <ListItem data={o} key={o.id} />
       ))}
     </div>
   );

@@ -22,7 +22,7 @@ function Home() {
       <HomeHeader />
       <div className={classnames('page-home__body')}>
         <div className={'page-home__body-tit'}>
-          <div className="">{formatDate()}</div>
+          <div className="page-home__body-tit--left">{formatDate()}</div>
           <div>支出16.33</div>
         </div>
         <div className="page-home__body-list">
